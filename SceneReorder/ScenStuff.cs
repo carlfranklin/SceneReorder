@@ -47,9 +47,9 @@ public class Channel
     public long color { get; set; }
     public int memab { get; set; }
     public int solo { get; set; }
-    public float volume { get; set; }
+    public double volume { get; set; }
     public int mute { get; set; }
-    public float pan { get; set; }
+    public double pan { get; set; }
     public int stereopan { get; set; }
     public int linkmaster { get; set; }
     public string iconid { get; set; }
@@ -59,30 +59,30 @@ public class Channel
     public int sub2 { get; set; }
     public int sub3 { get; set; }
     public int sub4 { get; set; }
-    public float aux1 { get; set; }
-    public float aux2 { get; set; }
-    public float aux3 { get; set; }
-    public float aux4 { get; set; }
-    public float aux5 { get; set; }
-    public float aux6 { get; set; }
-    public float aux7 { get; set; }
-    public float aux8 { get; set; }
-    public float aux9 { get; set; }
-    public float aux10 { get; set; }
-    public float aux11 { get; set; }
-    public float aux12 { get; set; }
-    public float aux13 { get; set; }
-    public float aux14 { get; set; }
-    public float aux15 { get; set; }
-    public float aux16 { get; set; }
-    public float aux12_pan { get; set; }
-    public float aux34_pan { get; set; }
-    public float aux56_pan { get; set; }
-    public float aux78_pan { get; set; }
-    public float aux910_pan { get; set; }
-    public float aux1112_pan { get; set; }
-    public float aux1314_pan { get; set; }
-    public float aux1516_pan { get; set; }
+    public double aux1 { get; set; }
+    public double aux2 { get; set; }
+    public double aux3 { get; set; }
+    public double aux4 { get; set; }
+    public double aux5 { get; set; }
+    public double aux6 { get; set; }
+    public double aux7 { get; set; }
+    public double aux8 { get; set; }
+    public double aux9 { get; set; }
+    public double aux10 { get; set; }
+    public double aux11 { get; set; }
+    public double aux12 { get; set; }
+    public double aux13 { get; set; }
+    public double aux14 { get; set; }
+    public double aux15 { get; set; }
+    public double aux16 { get; set; }
+    public double aux12_pan { get; set; }
+    public double aux34_pan { get; set; }
+    public double aux56_pan { get; set; }
+    public double aux78_pan { get; set; }
+    public double aux910_pan { get; set; }
+    public double aux1112_pan { get; set; }
+    public double aux1314_pan { get; set; }
+    public double aux1516_pan { get; set; }
     public int aux12_stpan { get; set; }
     public int aux34_stpan { get; set; }
     public int aux56_stpan { get; set; }
@@ -107,16 +107,16 @@ public class Channel
     public int assign_aux14 { get; set; }
     public int assign_aux15 { get; set; }
     public int assign_aux16 { get; set; }
-    public float FXA { get; set; }
-    public float FXB { get; set; }
-    public float FXC { get; set; }
-    public float FXD { get; set; }
+    public double FXA { get; set; }
+    public double FXB { get; set; }
+    public double FXC { get; set; }
+    public double FXD { get; set; }
     public int digitalin { get; set; }
     public int digitaloption { get; set; }
     public int prepost { get; set; }
     public int polarity { get; set; }
     public int scdetect { get; set; }
-    public float preampgain { get; set; }
+    public double preampgain { get; set; }
     public int assign_fx1 { get; set; }
     public int assign_fx2 { get; set; }
     public int assign_fx3 { get; set; }
@@ -389,9 +389,9 @@ public class Gate
     public int expander { get; set; }
     public int keyfilter { get; set; }
     public int threshold { get; set; }
-    public float range { get; set; }
-    public float attack { get; set; }
-    public float release { get; set; }
+    public double range { get; set; }
+    public double attack { get; set; }
+    public double release { get; set; }
 }
 
 public class Comp
@@ -401,43 +401,43 @@ public class Comp
     public int automode { get; set; }
     public int threshold { get; set; }
     public int ratio { get; set; }
-    public float attack { get; set; }
-    public float release { get; set; }
+    public double attack { get; set; }
+    public double release { get; set; }
     public int gain { get; set; }
 }
 
 public class Limit
 {
-    public float limiteron { get; set; }
-    public float threshold { get; set; }
+    public double limiteron { get; set; }
+    public double threshold { get; set; }
 }
 
 public class Eq
 {
-    public float eqallon { get; set; }
-    public float eqgain1 { get; set; }
-    public float eqq1 { get; set; }
-    public float eqfreq1 { get; set; }
-    public float eqbandon1 { get; set; }
-    public float eqbandop1 { get; set; }
-    public float eqgain2 { get; set; }
-    public float eqq2 { get; set; }
-    public float eqfreq2 { get; set; }
-    public float eqbandon2 { get; set; }
-    public float eqgain3 { get; set; }
-    public float eqq3 { get; set; }
-    public float eqfreq3 { get; set; }
-    public float eqbandon3 { get; set; }
-    public float eqgain4 { get; set; }
-    public float eqq4 { get; set; }
-    public float eqfreq4 { get; set; }
-    public float eqbandon4 { get; set; }
-    public float eqbandop4 { get; set; }
+    public double eqallon { get; set; }
+    public double eqgain1 { get; set; }
+    public double eqq1 { get; set; }
+    public double eqfreq1 { get; set; }
+    public double eqbandon1 { get; set; }
+    public double eqbandop1 { get; set; }
+    public double eqgain2 { get; set; }
+    public double eqq2 { get; set; }
+    public double eqfreq2 { get; set; }
+    public double eqbandon2 { get; set; }
+    public double eqgain3 { get; set; }
+    public double eqq3 { get; set; }
+    public double eqfreq3 { get; set; }
+    public double eqbandon3 { get; set; }
+    public double eqgain4 { get; set; }
+    public double eqq4 { get; set; }
+    public double eqfreq4 { get; set; }
+    public double eqbandon4 { get; set; }
+    public double eqbandop4 { get; set; }
 }
 
 public class Filter
 {
-    public float hpf { get; set; }
+    public double hpf { get; set; }
 }
 
 
@@ -1008,32 +1008,32 @@ public class Eq24 : Eq
 
 public class Filter22 : Filter
 { 
-    public float hpf { get; set; }
+    public double hpf { get; set; }
 }
 
 public class Dca
 {
-    public float volume { get; set; }
-    public float aux1 { get; set; }
-    public float aux2 { get; set; }
-    public float aux3 { get; set; }
-    public float aux4 { get; set; }
-    public float aux5 { get; set; }
-    public float aux6 { get; set; }
-    public float aux7 { get; set; }
-    public float aux8 { get; set; }
-    public float aux9 { get; set; }
-    public float aux10 { get; set; }
-    public float aux11 { get; set; }
-    public float aux12 { get; set; }
-    public float aux13 { get; set; }
-    public float aux14 { get; set; }
-    public float aux15 { get; set; }
-    public float aux16 { get; set; }
-    public float fx1 { get; set; }
-    public float fx2 { get; set; }
-    public float fx3 { get; set; }
-    public float fx4 { get; set; }
+    public double volume { get; set; }
+    public double aux1 { get; set; }
+    public double aux2 { get; set; }
+    public double aux3 { get; set; }
+    public double aux4 { get; set; }
+    public double aux5 { get; set; }
+    public double aux6 { get; set; }
+    public double aux7 { get; set; }
+    public double aux8 { get; set; }
+    public double aux9 { get; set; }
+    public double aux10 { get; set; }
+    public double aux11 { get; set; }
+    public double aux12 { get; set; }
+    public double aux13 { get; set; }
+    public double aux14 { get; set; }
+    public double aux15 { get; set; }
+    public double aux16 { get; set; }
+    public double fx1 { get; set; }
+    public double fx2 { get; set; }
+    public double fx3 { get; set; }
+    public double fx4 { get; set; }
 }
 
 
@@ -2637,27 +2637,27 @@ public class Ch118
 {
     public string name { get; set; }
     public string iconid { get; set; }
-    public float volume { get; set; }
-    public float aux1 { get; set; }
-    public float aux2 { get; set; }
-    public float aux3 { get; set; }
-    public float aux4 { get; set; }
-    public float aux5 { get; set; }
-    public float aux6 { get; set; }
-    public float aux7 { get; set; }
-    public float aux8 { get; set; }
-    public float aux9 { get; set; }
-    public float aux10 { get; set; }
-    public float aux11 { get; set; }
-    public float aux12 { get; set; }
-    public float aux13 { get; set; }
-    public float aux14 { get; set; }
-    public float aux15 { get; set; }
-    public float aux16 { get; set; }
-    public float fx1 { get; set; }
-    public float fx2 { get; set; }
-    public float fx3 { get; set; }
-    public float fx4 { get; set; }
+    public double volume { get; set; }
+    public double aux1 { get; set; }
+    public double aux2 { get; set; }
+    public double aux3 { get; set; }
+    public double aux4 { get; set; }
+    public double aux5 { get; set; }
+    public double aux6 { get; set; }
+    public double aux7 { get; set; }
+    public double aux8 { get; set; }
+    public double aux9 { get; set; }
+    public double aux10 { get; set; }
+    public double aux11 { get; set; }
+    public double aux12 { get; set; }
+    public double aux13 { get; set; }
+    public double aux14 { get; set; }
+    public double aux15 { get; set; }
+    public double aux16 { get; set; }
+    public double fx1 { get; set; }
+    public double fx2 { get; set; }
+    public double fx3 { get; set; }
+    public double fx4 { get; set; }
     public int line1 { get; set; }
     public int line2 { get; set; }
     public int line3 { get; set; }
@@ -2704,27 +2704,27 @@ public class Ch214
 {
     public string name { get; set; }
     public string iconid { get; set; }
-    public float volume { get; set; }
-    public float aux1 { get; set; }
-    public float aux2 { get; set; }
-    public float aux3 { get; set; }
-    public float aux4 { get; set; }
-    public float aux5 { get; set; }
-    public float aux6 { get; set; }
-    public float aux7 { get; set; }
-    public float aux8 { get; set; }
-    public float aux9 { get; set; }
-    public float aux10 { get; set; }
-    public float aux11 { get; set; }
-    public float aux12 { get; set; }
-    public float aux13 { get; set; }
-    public float aux14 { get; set; }
-    public float aux15 { get; set; }
-    public float aux16 { get; set; }
-    public float fx1 { get; set; }
-    public float fx2 { get; set; }
-    public float fx3 { get; set; }
-    public float fx4 { get; set; }
+    public double volume { get; set; }
+    public double aux1 { get; set; }
+    public double aux2 { get; set; }
+    public double aux3 { get; set; }
+    public double aux4 { get; set; }
+    public double aux5 { get; set; }
+    public double aux6 { get; set; }
+    public double aux7 { get; set; }
+    public double aux8 { get; set; }
+    public double aux9 { get; set; }
+    public double aux10 { get; set; }
+    public double aux11 { get; set; }
+    public double aux12 { get; set; }
+    public double aux13 { get; set; }
+    public double aux14 { get; set; }
+    public double aux15 { get; set; }
+    public double aux16 { get; set; }
+    public double fx1 { get; set; }
+    public double fx2 { get; set; }
+    public double fx3 { get; set; }
+    public double fx4 { get; set; }
     public int line1 { get; set; }
     public int line2 { get; set; }
     public int line3 { get; set; }
@@ -2771,27 +2771,27 @@ public class Ch36
 {
     public string name { get; set; }
     public string iconid { get; set; }
-    public float volume { get; set; }
-    public float aux1 { get; set; }
-    public float aux2 { get; set; }
-    public float aux3 { get; set; }
-    public float aux4 { get; set; }
-    public float aux5 { get; set; }
-    public float aux6 { get; set; }
-    public float aux7 { get; set; }
-    public float aux8 { get; set; }
-    public float aux9 { get; set; }
-    public float aux10 { get; set; }
-    public float aux11 { get; set; }
-    public float aux12 { get; set; }
-    public float aux13 { get; set; }
-    public float aux14 { get; set; }
-    public float aux15 { get; set; }
-    public float aux16 { get; set; }
-    public float fx1 { get; set; }
-    public float fx2 { get; set; }
-    public float fx3 { get; set; }
-    public float fx4 { get; set; }
+    public double volume { get; set; }
+    public double aux1 { get; set; }
+    public double aux2 { get; set; }
+    public double aux3 { get; set; }
+    public double aux4 { get; set; }
+    public double aux5 { get; set; }
+    public double aux6 { get; set; }
+    public double aux7 { get; set; }
+    public double aux8 { get; set; }
+    public double aux9 { get; set; }
+    public double aux10 { get; set; }
+    public double aux11 { get; set; }
+    public double aux12 { get; set; }
+    public double aux13 { get; set; }
+    public double aux14 { get; set; }
+    public double aux15 { get; set; }
+    public double aux16 { get; set; }
+    public double fx1 { get; set; }
+    public double fx2 { get; set; }
+    public double fx3 { get; set; }
+    public double fx4 { get; set; }
     public int line1 { get; set; }
     public int line2 { get; set; }
     public int line3 { get; set; }
@@ -2838,27 +2838,27 @@ public class Ch46
 {
     public string name { get; set; }
     public string iconid { get; set; }
-    public float volume { get; set; }
-    public float aux1 { get; set; }
-    public float aux2 { get; set; }
-    public float aux3 { get; set; }
-    public float aux4 { get; set; }
-    public float aux5 { get; set; }
-    public float aux6 { get; set; }
-    public float aux7 { get; set; }
-    public float aux8 { get; set; }
-    public float aux9 { get; set; }
-    public float aux10 { get; set; }
-    public float aux11 { get; set; }
-    public float aux12 { get; set; }
-    public float aux13 { get; set; }
-    public float aux14 { get; set; }
-    public float aux15 { get; set; }
-    public float aux16 { get; set; }
-    public float fx1 { get; set; }
-    public float fx2 { get; set; }
-    public float fx3 { get; set; }
-    public float fx4 { get; set; }
+    public double volume { get; set; }
+    public double aux1 { get; set; }
+    public double aux2 { get; set; }
+    public double aux3 { get; set; }
+    public double aux4 { get; set; }
+    public double aux5 { get; set; }
+    public double aux6 { get; set; }
+    public double aux7 { get; set; }
+    public double aux8 { get; set; }
+    public double aux9 { get; set; }
+    public double aux10 { get; set; }
+    public double aux11 { get; set; }
+    public double aux12 { get; set; }
+    public double aux13 { get; set; }
+    public double aux14 { get; set; }
+    public double aux15 { get; set; }
+    public double aux16 { get; set; }
+    public double fx1 { get; set; }
+    public double fx2 { get; set; }
+    public double fx3 { get; set; }
+    public double fx4 { get; set; }
     public int line1 { get; set; }
     public int line2 { get; set; }
     public int line3 { get; set; }
@@ -2905,27 +2905,27 @@ public class Ch53
 {
     public string name { get; set; }
     public string iconid { get; set; }
-    public float volume { get; set; }
-    public float aux1 { get; set; }
-    public float aux2 { get; set; }
-    public float aux3 { get; set; }
-    public float aux4 { get; set; }
-    public float aux5 { get; set; }
-    public float aux6 { get; set; }
-    public float aux7 { get; set; }
-    public float aux8 { get; set; }
-    public float aux9 { get; set; }
-    public float aux10 { get; set; }
-    public float aux11 { get; set; }
-    public float aux12 { get; set; }
-    public float aux13 { get; set; }
-    public float aux14 { get; set; }
-    public float aux15 { get; set; }
-    public float aux16 { get; set; }
-    public float fx1 { get; set; }
-    public float fx2 { get; set; }
-    public float fx3 { get; set; }
-    public float fx4 { get; set; }
+    public double volume { get; set; }
+    public double aux1 { get; set; }
+    public double aux2 { get; set; }
+    public double aux3 { get; set; }
+    public double aux4 { get; set; }
+    public double aux5 { get; set; }
+    public double aux6 { get; set; }
+    public double aux7 { get; set; }
+    public double aux8 { get; set; }
+    public double aux9 { get; set; }
+    public double aux10 { get; set; }
+    public double aux11 { get; set; }
+    public double aux12 { get; set; }
+    public double aux13 { get; set; }
+    public double aux14 { get; set; }
+    public double aux15 { get; set; }
+    public double aux16 { get; set; }
+    public double fx1 { get; set; }
+    public double fx2 { get; set; }
+    public double fx3 { get; set; }
+    public double fx4 { get; set; }
     public int line1 { get; set; }
     public int line2 { get; set; }
     public int line3 { get; set; }
@@ -2972,27 +2972,27 @@ public class Ch63
 {
     public string name { get; set; }
     public string iconid { get; set; }
-    public float volume { get; set; }
-    public float aux1 { get; set; }
-    public float aux2 { get; set; }
-    public float aux3 { get; set; }
-    public float aux4 { get; set; }
-    public float aux5 { get; set; }
-    public float aux6 { get; set; }
-    public float aux7 { get; set; }
-    public float aux8 { get; set; }
-    public float aux9 { get; set; }
-    public float aux10 { get; set; }
-    public float aux11 { get; set; }
-    public float aux12 { get; set; }
-    public float aux13 { get; set; }
-    public float aux14 { get; set; }
-    public float aux15 { get; set; }
-    public float aux16 { get; set; }
-    public float fx1 { get; set; }
-    public float fx2 { get; set; }
-    public float fx3 { get; set; }
-    public float fx4 { get; set; }
+    public double volume { get; set; }
+    public double aux1 { get; set; }
+    public double aux2 { get; set; }
+    public double aux3 { get; set; }
+    public double aux4 { get; set; }
+    public double aux5 { get; set; }
+    public double aux6 { get; set; }
+    public double aux7 { get; set; }
+    public double aux8 { get; set; }
+    public double aux9 { get; set; }
+    public double aux10 { get; set; }
+    public double aux11 { get; set; }
+    public double aux12 { get; set; }
+    public double aux13 { get; set; }
+    public double aux14 { get; set; }
+    public double aux15 { get; set; }
+    public double aux16 { get; set; }
+    public double fx1 { get; set; }
+    public double fx2 { get; set; }
+    public double fx3 { get; set; }
+    public double fx4 { get; set; }
     public int line1 { get; set; }
     public int line2 { get; set; }
     public int line3 { get; set; }
@@ -3039,27 +3039,27 @@ public class Ch73
 {
     public string name { get; set; }
     public string iconid { get; set; }
-    public float volume { get; set; }
-    public float aux1 { get; set; }
-    public float aux2 { get; set; }
-    public float aux3 { get; set; }
-    public float aux4 { get; set; }
-    public float aux5 { get; set; }
-    public float aux6 { get; set; }
-    public float aux7 { get; set; }
-    public float aux8 { get; set; }
-    public float aux9 { get; set; }
-    public float aux10 { get; set; }
-    public float aux11 { get; set; }
-    public float aux12 { get; set; }
-    public float aux13 { get; set; }
-    public float aux14 { get; set; }
-    public float aux15 { get; set; }
-    public float aux16 { get; set; }
-    public float fx1 { get; set; }
-    public float fx2 { get; set; }
-    public float fx3 { get; set; }
-    public float fx4 { get; set; }
+    public double volume { get; set; }
+    public double aux1 { get; set; }
+    public double aux2 { get; set; }
+    public double aux3 { get; set; }
+    public double aux4 { get; set; }
+    public double aux5 { get; set; }
+    public double aux6 { get; set; }
+    public double aux7 { get; set; }
+    public double aux8 { get; set; }
+    public double aux9 { get; set; }
+    public double aux10 { get; set; }
+    public double aux11 { get; set; }
+    public double aux12 { get; set; }
+    public double aux13 { get; set; }
+    public double aux14 { get; set; }
+    public double aux15 { get; set; }
+    public double aux16 { get; set; }
+    public double fx1 { get; set; }
+    public double fx2 { get; set; }
+    public double fx3 { get; set; }
+    public double fx4 { get; set; }
     public int line1 { get; set; }
     public int line2 { get; set; }
     public int line3 { get; set; }
@@ -3106,27 +3106,27 @@ public class Ch83
 {
     public string name { get; set; }
     public string iconid { get; set; }
-    public float volume { get; set; }
-    public float aux1 { get; set; }
-    public float aux2 { get; set; }
-    public float aux3 { get; set; }
-    public float aux4 { get; set; }
-    public float aux5 { get; set; }
-    public float aux6 { get; set; }
-    public float aux7 { get; set; }
-    public float aux8 { get; set; }
-    public float aux9 { get; set; }
-    public float aux10 { get; set; }
-    public float aux11 { get; set; }
-    public float aux12 { get; set; }
-    public float aux13 { get; set; }
-    public float aux14 { get; set; }
-    public float aux15 { get; set; }
-    public float aux16 { get; set; }
-    public float fx1 { get; set; }
-    public float fx2 { get; set; }
-    public float fx3 { get; set; }
-    public float fx4 { get; set; }
+    public double volume { get; set; }
+    public double aux1 { get; set; }
+    public double aux2 { get; set; }
+    public double aux3 { get; set; }
+    public double aux4 { get; set; }
+    public double aux5 { get; set; }
+    public double aux6 { get; set; }
+    public double aux7 { get; set; }
+    public double aux8 { get; set; }
+    public double aux9 { get; set; }
+    public double aux10 { get; set; }
+    public double aux11 { get; set; }
+    public double aux12 { get; set; }
+    public double aux13 { get; set; }
+    public double aux14 { get; set; }
+    public double aux15 { get; set; }
+    public double aux16 { get; set; }
+    public double fx1 { get; set; }
+    public double fx2 { get; set; }
+    public double fx3 { get; set; }
+    public double fx4 { get; set; }
     public int line1 { get; set; }
     public int line2 { get; set; }
     public int line3 { get; set; }
@@ -3173,27 +3173,27 @@ public class Ch93
 {
     public string name { get; set; }
     public string iconid { get; set; }
-    public float volume { get; set; }
-    public float aux1 { get; set; }
-    public float aux2 { get; set; }
-    public float aux3 { get; set; }
-    public float aux4 { get; set; }
-    public float aux5 { get; set; }
-    public float aux6 { get; set; }
-    public float aux7 { get; set; }
-    public float aux8 { get; set; }
-    public float aux9 { get; set; }
-    public float aux10 { get; set; }
-    public float aux11 { get; set; }
-    public float aux12 { get; set; }
-    public float aux13 { get; set; }
-    public float aux14 { get; set; }
-    public float aux15 { get; set; }
-    public float aux16 { get; set; }
-    public float fx1 { get; set; }
-    public float fx2 { get; set; }
-    public float fx3 { get; set; }
-    public float fx4 { get; set; }
+    public double volume { get; set; }
+    public double aux1 { get; set; }
+    public double aux2 { get; set; }
+    public double aux3 { get; set; }
+    public double aux4 { get; set; }
+    public double aux5 { get; set; }
+    public double aux6 { get; set; }
+    public double aux7 { get; set; }
+    public double aux8 { get; set; }
+    public double aux9 { get; set; }
+    public double aux10 { get; set; }
+    public double aux11 { get; set; }
+    public double aux12 { get; set; }
+    public double aux13 { get; set; }
+    public double aux14 { get; set; }
+    public double aux15 { get; set; }
+    public double aux16 { get; set; }
+    public double fx1 { get; set; }
+    public double fx2 { get; set; }
+    public double fx3 { get; set; }
+    public double fx4 { get; set; }
     public int line1 { get; set; }
     public int line2 { get; set; }
     public int line3 { get; set; }
@@ -3270,7 +3270,7 @@ public class Mastersection
     public int talk_main { get; set; }
     public int talkpressed { get; set; }
     public int solo_level { get; set; }
-    public float phones_level { get; set; }
+    public double phones_level { get; set; }
     public int mon_level { get; set; }
 }
 
