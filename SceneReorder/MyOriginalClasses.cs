@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SceneReorderfoos
+namespace MyOriginalClasses
 {
-
     public class Rootobject
     {
         public Aux aux { get; set; }

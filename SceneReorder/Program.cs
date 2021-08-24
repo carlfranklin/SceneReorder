@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.IO;
+using MyNewClasses;
 
 namespace SceneReorder
 {
@@ -25,132 +25,170 @@ namespace SceneReorder
             var outputFile = $"{folder}\\output.scene";
 
             var json = File.ReadAllText(filename);
+
             var scene = JsonConvert.DeserializeObject<Rootobject>(json);
+            var t = scene.line.GetType();
 
-
-            while(true)
+            while (true)
             {
                 Display(scene);
 
-                Console.Write("Enter a channel # to swap, ENTER to quit: ");
+                Console.Write("Enter a channel # to swap, 0 to clean, or ENTER to quit: ");
                 var firstCh = Console.ReadLine();
                 if (firstCh == "")
                 {
-                    
                     var jsonOutput = JsonConvert.SerializeObject(scene, Formatting.Indented);
                     File.WriteAllText(outputFile, jsonOutput);
                     return;
                 }
-                Console.Write("Enter another channel # to swap it with: ");
-                var secondCh = Console.ReadLine();
-
-                var t = scene.line.GetType();
-                var first = $"ch{firstCh}";
-                var second = $"ch{secondCh}";
-                var firstChannel = t.GetProperty(first);
-                var secondChannel = t.GetProperty(second);
-                var firstChannelObject = firstChannel.GetValue(scene.line);
-                var secondChannelObject = secondChannel.GetValue(scene.line);
-                var firstChannelProperties = firstChannel.PropertyType.GetProperties();
-                var secondChannelProperties = secondChannel.PropertyType.GetProperties();
-                for (int i = 0; i < firstChannelProperties.Length; i++)
+                else if (firstCh == "0")
                 {
-                    var firstChProp = firstChannelProperties[i];
-                    var secondChProp = secondChannelProperties[i];
-                    var firstValue = firstChProp.GetValue(firstChannelObject);
-                    var secondValue = secondChProp.GetValue(secondChannelObject);
-                    if (firstChProp.Name.ToLower().StartsWith("gate"))
+                    Console.Write("Enter channel # to clean: ");
+                    var startCh = Console.ReadLine();
+                    int ch = Convert.ToInt32(startCh);
+                    var cleanup = $"ch{ch}";
+                    var ChannelLineProperty = t.GetProperty(cleanup);
+                    var ChannelObject = (Channel)ChannelLineProperty.GetValue(scene.line);
+                    Console.Write($"Enter new Channel Name (ENTER for Ch. {ch}): ");
+                    var username = Console.ReadLine();
+                    if (username == "")
+                        username = $"Ch. {ch}";
+                    ChannelObject.username = username;
+                    ChannelObject.iconid = "";
+                    ChannelObject.volume = 0;
+                    ChannelObject.mute = 1;
+                    ChannelObject.solo = 0;
+                }
+                else
+                {
+                    Console.Write("Enter another channel # to swap it with: ");
+                    var secondCh = Console.ReadLine();
+
+                    // line property names
+                    var first = $"ch{firstCh}";
+                    var second = $"ch{secondCh}";
+
+                    // PropertyInfo objects
+                    var firstChannelLineProperty = t.GetProperty(first);
+                    var secondChannelLineProperty = t.GetProperty(second);
+
+                    // Channel objects
+                    var firstChannelObject = firstChannelLineProperty.GetValue(scene.line);
+                    var secondChannelObject = secondChannelLineProperty.GetValue(scene.line);
+
+                    // Channel object properties (array of PropertyInfo)
+                    var firstChannelObjectProperties = firstChannelLineProperty.PropertyType.GetProperties();
+                    var secondChannelObjectProperties = secondChannelLineProperty.PropertyType.GetProperties();
+
+                    for (int i = 0; i < firstChannelObjectProperties.Length; i++)
                     {
-                        var firstGateProperties = firstChProp.PropertyType.GetProperties();
-                        var secondGateProperties = secondChProp.PropertyType.GetProperties();
-                        for (int g = 0; g < firstGateProperties.Length; g++)
+                        // Get next PropertyInfo from the Channel objects
+                        var firstChProp = firstChannelObjectProperties[i];
+                        var secondChProp = secondChannelObjectProperties[i];
+
+                        // Get the value of these properties
+                        var firstValue = firstChProp.GetValue(firstChannelObject);
+                        var secondValue = secondChProp.GetValue(secondChannelObject);
+
+                        if (firstValue != null && secondValue != null)
                         {
-                            var firstGateProp = firstGateProperties[g];
-                            var secondGateProp = secondGateProperties[g];
-                            var firstGateValue = firstGateProp.GetValue(firstValue);
-                            var secondGateValue = secondGateProp.GetValue(secondValue);
-                            secondGateProp.SetValue(secondValue, firstGateValue);
-                            firstGateProp.SetValue(firstValue, secondGateValue);
+                            if (firstChProp.Name.ToLower().StartsWith("gate"))
+                            {
+                                var firstGateProperties = firstChProp.PropertyType.GetProperties();
+                                var secondGateProperties = secondChProp.PropertyType.GetProperties();
+                                for (int g = 0; g < firstGateProperties.Length; g++)
+                                {
+                                    var firstGateProp = firstGateProperties[g];
+                                    var secondGateProp = secondGateProperties[g];
+                                    var firstGateValue = firstGateProp.GetValue(firstValue);
+                                    var secondGateValue = secondGateProp.GetValue(secondValue);
+                                    secondGateProp.SetValue(secondValue, firstGateValue);
+                                    firstGateProp.SetValue(firstValue, secondGateValue);
+                                }
+                            }
+                            else if (firstChProp.Name.ToLower().StartsWith("comp"))
+                            {
+                                var firstCompProperties = firstChProp.PropertyType.GetProperties();
+                                var secondCompProperties = secondChProp.PropertyType.GetProperties();
+                                for (int g = 0; g < firstCompProperties.Length; g++)
+                                {
+                                    var firstCompProp = firstCompProperties[g];
+                                    var secondCompProp = secondCompProperties[g];
+                                    var firstCompValue = firstCompProp.GetValue(firstValue);
+                                    var secondCompValue = secondCompProp.GetValue(secondValue);
+                                    secondCompProp.SetValue(secondValue, firstCompValue);
+                                    firstCompProp.SetValue(firstValue, secondCompValue);
+                                }
+                            }
+                            else if (firstChProp.Name.ToLower().StartsWith("limit"))
+                            {
+                                var firstLimitProperties = firstChProp.PropertyType.GetProperties();
+                                var secondLimitProperties = secondChProp.PropertyType.GetProperties();
+                                for (int g = 0; g < firstLimitProperties.Length; g++)
+                                {
+                                    var firstLimitProp = firstLimitProperties[g];
+                                    var secondLimitProp = secondLimitProperties[g];
+                                    var firstLimitValue = firstLimitProp.GetValue(firstValue);
+                                    var secondLimitValue = secondLimitProp.GetValue(secondValue);
+                                    secondLimitProp.SetValue(secondValue, firstLimitValue);
+                                    firstLimitProp.SetValue(firstValue, secondLimitValue);
+                                }
+                            }
+                            else if (firstChProp.Name.ToLower().StartsWith("eq"))
+                            {
+                                var firstEqProperties = firstChProp.PropertyType.GetProperties();
+                                var secondEqProperties = secondChProp.PropertyType.GetProperties();
+                                for (int g = 0; g < firstEqProperties.Length; g++)
+                                {
+                                    var firstEqProp = firstEqProperties[g];
+                                    var secondEqProp = secondEqProperties[g];
+                                    var firstEqValue = firstEqProp.GetValue(firstValue);
+                                    var secondEqValue = secondEqProp.GetValue(secondValue);
+                                    secondEqProp.SetValue(secondValue, firstEqValue);
+                                    firstEqProp.SetValue(firstValue, secondEqValue);
+                                }
+                            }
+                            else if (firstChProp.Name.ToLower().StartsWith("filter"))
+                            {
+                                var firstFilterProperties = firstChProp.PropertyType.GetProperties();
+                                var secondFilterProperties = secondChProp.PropertyType.GetProperties();
+                                for (int g = 0; g < firstFilterProperties.Length; g++)
+                                {
+                                    var firstFilterProp = firstFilterProperties[g];
+                                    var secondFilterProp = secondFilterProperties[g];
+                                    var firstFilterValue = firstFilterProp.GetValue(firstValue);
+                                    var secondFilterValue = secondFilterProp.GetValue(secondValue);
+                                    secondFilterProp.SetValue(secondValue, firstFilterValue);
+                                    firstFilterProp.SetValue(firstValue, secondFilterValue);
+                                }
+                            }
+                            else if (firstChProp.Name.ToLower().StartsWith("dca"))
+                            {
+                                var firstDcaProperties = firstChProp.PropertyType.GetProperties();
+                                var secondDcaProperties = secondChProp.PropertyType.GetProperties();
+                                for (int g = 0; g < firstDcaProperties.Length; g++)
+                                {
+                                    var firstDcaProp = firstDcaProperties[g];
+                                    var secondDcaProp = secondDcaProperties[g];
+                                    var firstDcaValue = firstDcaProp.GetValue(firstValue);
+                                    var secondDcaValue = secondDcaProp.GetValue(secondValue);
+                                    secondDcaProp.SetValue(secondValue, firstDcaValue);
+                                    firstDcaProp.SetValue(firstValue, secondDcaValue);
+                                }
+                            }
+                            else
+                            {
+                                secondChProp.SetValue(secondChannelObject, firstValue);
+                                firstChProp.SetValue(firstChannelObject, secondValue);
+                            }
                         }
-                    }
-                    else if (firstChProp.Name.ToLower().StartsWith("comp"))
-                    {
-                        var firstCompProperties = firstChProp.PropertyType.GetProperties();
-                        var secondCompProperties = secondChProp.PropertyType.GetProperties();
-                        for (int g = 0; g < firstCompProperties.Length; g++)
+                        else
                         {
-                            var firstCompProp = firstCompProperties[g];
-                            var secondCompProp = secondCompProperties[g];
-                            var firstCompValue = firstCompProp.GetValue(firstValue);
-                            var secondCompValue = secondCompProp.GetValue(secondValue);
-                            secondCompProp.SetValue(secondValue, firstCompValue);
-                            firstCompProp.SetValue(firstValue, secondCompValue);
+
                         }
-                    }
-                    else if (firstChProp.Name.ToLower().StartsWith("limit"))
-                    {
-                        var firstLimitProperties = firstChProp.PropertyType.GetProperties();
-                        var secondLimitProperties = secondChProp.PropertyType.GetProperties();
-                        for (int g = 0; g < firstLimitProperties.Length; g++)
-                        {
-                            var firstLimitProp = firstLimitProperties[g];
-                            var secondLimitProp = secondLimitProperties[g];
-                            var firstLimitValue = firstLimitProp.GetValue(firstValue);
-                            var secondLimitValue = secondLimitProp.GetValue(secondValue);
-                            secondLimitProp.SetValue(secondValue, firstLimitValue);
-                            firstLimitProp.SetValue(firstValue, secondLimitValue);
-                        }
-                    }
-                    else if (firstChProp.Name.ToLower().StartsWith("eq"))
-                    {
-                        var firstEqProperties = firstChProp.PropertyType.GetProperties();
-                        var secondEqProperties = secondChProp.PropertyType.GetProperties();
-                        for (int g = 0; g < firstEqProperties.Length; g++)
-                        {
-                            var firstEqProp = firstEqProperties[g];
-                            var secondEqProp = secondEqProperties[g];
-                            var firstEqValue = firstEqProp.GetValue(firstValue);
-                            var secondEqValue = secondEqProp.GetValue(secondValue);
-                            secondEqProp.SetValue(secondValue, firstEqValue);
-                            firstEqProp.SetValue(firstValue, secondEqValue);
-                        }
-                    }
-                    else if (firstChProp.Name.ToLower().StartsWith("filter"))
-                    {
-                        var firstFilterProperties = firstChProp.PropertyType.GetProperties();
-                        var secondFilterProperties = secondChProp.PropertyType.GetProperties();
-                        for (int g = 0; g < firstFilterProperties.Length; g++)
-                        {
-                            var firstFilterProp = firstFilterProperties[g];
-                            var secondFilterProp = secondFilterProperties[g];
-                            var firstFilterValue = firstFilterProp.GetValue(firstValue);
-                            var secondFilterValue = secondFilterProp.GetValue(secondValue);
-                            secondFilterProp.SetValue(secondValue, firstFilterValue);
-                            firstFilterProp.SetValue(firstValue, secondFilterValue);
-                        }
-                    }
-                    else if (firstChProp.Name.ToLower().StartsWith("dca"))
-                    {
-                        var firstDcaProperties = firstChProp.PropertyType.GetProperties();
-                        var secondDcaProperties = secondChProp.PropertyType.GetProperties();
-                        for (int g = 0; g < firstDcaProperties.Length; g++)
-                        {
-                            var firstDcaProp = firstDcaProperties[g];
-                            var secondDcaProp = secondDcaProperties[g];
-                            var firstDcaValue = firstDcaProp.GetValue(firstValue);
-                            var secondDcaValue = secondDcaProp.GetValue(secondValue);
-                            secondDcaProp.SetValue(secondValue, firstDcaValue);
-                            firstDcaProp.SetValue(firstValue, secondDcaValue);
-                        }
-                    }
-                    else
-                    {
-                        secondChProp.SetValue(secondChannelObject, firstValue);
-                        firstChProp.SetValue(firstChannelObject, secondValue);
                     }
                 }
             }
-
         }
 
         static void Display(Rootobject scene)
