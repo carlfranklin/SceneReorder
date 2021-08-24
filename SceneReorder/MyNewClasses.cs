@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,22 +11,24 @@ namespace MyNewClasses
 
     public class Channel
     {
+        [JsonProperty("48v")]
+        public int _48v {get;set;}
         public string username { get; set; }
         public long color { get; set; }
-        public double memab { get; set; }
-        public double solo { get; set; }
+        public int memab { get; set; }
+        public int solo { get; set; }
         public double volume { get; set; }
-        public double mute { get; set; }
+        public int mute { get; set; }
         public double pan { get; set; }
         public double stereopan { get; set; }
-        public double linkmaster { get; set; }
+        public int linkmaster { get; set; }
         public string iconid { get; set; }
         public double lr { get; set; }
-        public double mono { get; set; }
-        public double sub1 { get; set; }
-        public double sub2 { get; set; }
-        public double sub3 { get; set; }
-        public double sub4 { get; set; }
+        public int mono { get; set; }
+        public int sub1 { get; set; }
+        public int sub2 { get; set; }
+        public int sub3 { get; set; }
+        public int sub4 { get; set; }
         public double aux1 { get; set; }
         public double aux2 { get; set; }
         public double aux3 { get; set; }
@@ -58,36 +61,36 @@ namespace MyNewClasses
         public double aux1112_stpan { get; set; }
         public double aux1314_stpan { get; set; }
         public double aux1516_stpan { get; set; }
-        public double assign_aux1 { get; set; }
-        public double assign_aux2 { get; set; }
-        public double assign_aux3 { get; set; }
-        public double assign_aux4 { get; set; }
-        public double assign_aux5 { get; set; }
-        public double assign_aux6 { get; set; }
-        public double assign_aux7 { get; set; }
-        public double assign_aux8 { get; set; }
-        public double assign_aux9 { get; set; }
-        public double assign_aux10 { get; set; }
-        public double assign_aux11 { get; set; }
-        public double assign_aux12 { get; set; }
-        public double assign_aux13 { get; set; }
-        public double assign_aux14 { get; set; }
-        public double assign_aux15 { get; set; }
-        public double assign_aux16 { get; set; }
+        public int assign_aux1 { get; set; }
+        public int assign_aux2 { get; set; }
+        public int assign_aux3 { get; set; }
+        public int assign_aux4 { get; set; }
+        public int assign_aux5 { get; set; }
+        public int assign_aux6 { get; set; }
+        public int assign_aux7 { get; set; }
+        public int assign_aux8 { get; set; }
+        public int assign_aux9 { get; set; }
+        public int assign_aux10 { get; set; }
+        public int assign_aux11 { get; set; }
+        public int assign_aux12 { get; set; }
+        public int assign_aux13 { get; set; }
+        public int assign_aux14 { get; set; }
+        public int assign_aux15 { get; set; }
+        public int assign_aux16 { get; set; }
         public double FXA { get; set; }
         public double FXB { get; set; }
         public double FXC { get; set; }
         public double FXD { get; set; }
-        public double digitalin { get; set; }
-        public double digitaloption { get; set; }
-        public double prepost { get; set; }
-        public double polarity { get; set; }
-        public double scdetect { get; set; }
+        public int digitalin { get; set; }
+        public int digitaloption { get; set; }
+        public int prepost { get; set; }
+        public int polarity { get; set; }
+        public int scdetect { get; set; }
         public double preampgain { get; set; }
-        public double assign_fx1 { get; set; }
-        public double assign_fx2 { get; set; }
-        public double assign_fx3 { get; set; }
-        public double assign_fx4 { get; set; }
+        public int assign_fx1 { get; set; }
+        public int assign_fx2 { get; set; }
+        public int assign_fx3 { get; set; }
+        public int assign_fx4 { get; set; }
     }
 
     public class Ch1 : Channel
@@ -1778,9 +1781,9 @@ namespace MyNewClasses
 
     public class Comp
     {
-        public double on { get; set; }
-        public double softknee { get; set; }
-        public double automode { get; set; }
+        public int on { get; set; }
+        public int softknee { get; set; }
+        public int automode { get; set; }
         public double threshold { get; set; }
         public double ratio { get; set; }
         public double attack { get; set; }
@@ -2014,6 +2017,8 @@ namespace MyNewClasses
 
     public class Dca
     {
+        public string name { get; set; }
+        public string iconid { get; set; }
         public double volume { get; set; }
         public double aux1 { get; set; }
         public double aux2 { get; set; }
@@ -2035,6 +2040,46 @@ namespace MyNewClasses
         public double fx2 { get; set; }
         public double fx3 { get; set; }
         public double fx4 { get; set; }
+        public int line1 { get; set; }
+        public int line2 { get; set; }
+        public int line3 { get; set; }
+        public int line4 { get; set; }
+        public int line5 { get; set; }
+        public int line6 { get; set; }
+        public int line7 { get; set; }
+        public int line8 { get; set; }
+        public int line9 { get; set; }
+        public int line10 { get; set; }
+        public int line11 { get; set; }
+        public int line12 { get; set; }
+        public int line13 { get; set; }
+        public int line14 { get; set; }
+        public int line15 { get; set; }
+        public int line16 { get; set; }
+        public int line17 { get; set; }
+        public int line18 { get; set; }
+        public int line19 { get; set; }
+        public int line20 { get; set; }
+        public int line21 { get; set; }
+        public int line22 { get; set; }
+        public int line23 { get; set; }
+        public int line24 { get; set; }
+        public int line25 { get; set; }
+        public int line26 { get; set; }
+        public int line27 { get; set; }
+        public int line28 { get; set; }
+        public int line29 { get; set; }
+        public int line30 { get; set; }
+        public int line31 { get; set; }
+        public int line32 { get; set; }
+        public int fxreturn1 { get; set; }
+        public int fxreturn2 { get; set; }
+        public int fxreturn3 { get; set; }
+        public int fxreturn4 { get; set; }
+        public int return1 { get; set; }
+        public int return2 { get; set; }
+        public int return3 { get; set; }
+        public int return4 { get; set; }
     }
 
     public class Dca1 : Dca
@@ -2191,24 +2236,24 @@ namespace MyNewClasses
 
     public class Eq
     {
-        public double eqallon { get; set; }
+        public int eqallon { get; set; }
         public double eqgain1 { get; set; }
         public double eqq1 { get; set; }
         public double eqfreq1 { get; set; }
         public double eqbandon1 { get; set; }
-        public double eqbandop1 { get; set; }
+        public int eqbandop1 { get; set; }
         public double eqgain2 { get; set; }
         public double eqq2 { get; set; }
         public double eqfreq2 { get; set; }
-        public double eqbandon2 { get; set; }
+        public int eqbandon2 { get; set; }
         public double eqgain3 { get; set; }
         public double eqq3 { get; set; }
         public double eqfreq3 { get; set; }
-        public double eqbandon3 { get; set; }
+        public int eqbandon3 { get; set; }
         public double eqgain4 { get; set; }
         public double eqq4 { get; set; }
         public double eqfreq4 { get; set; }
-        public double eqbandon4 { get; set; }
+        public int eqbandon4 { get; set; }
         public double eqbandop4 { get; set; }
     }
 
@@ -2659,9 +2704,9 @@ namespace MyNewClasses
 
     public class Gate
     {
-        public double on { get; set; }
-        public double keylisten { get; set; }
-        public double expander { get; set; }
+        public int on { get; set; }
+        public int keylisten { get; set; }
+        public int expander { get; set; }
         public double keyfilter { get; set; }
         public double threshold { get; set; }
         public double range { get; set; }
@@ -2883,7 +2928,7 @@ namespace MyNewClasses
 
     public class Limit
     {
-        public double limiteron { get; set; }
+        public int limiteron { get; set; }
         public double threshold { get; set; }
     }
 
@@ -2899,7 +2944,7 @@ namespace MyNewClasses
     {
     }
 
-    public class Limit12 : Comp
+    public class Limit12 : Limit
     {
     }
 
@@ -3291,7 +3336,23 @@ namespace MyNewClasses
 
     public class Mutegroup
     {
-        public double allon { get; set; }
+        public int allon { get; set; }
+        public string mutegroup1username { get; set; }
+        public string mutegroup2username { get; set; }
+        public string mutegroup3username { get; set; }
+        public string mutegroup4username { get; set; }
+        public string mutegroup5username { get; set; }
+        public string mutegroup6username { get; set; }
+        public string mutegroup7username { get; set; }
+        public string mutegroup8username { get; set; }
+    }
+
+    public class Network
+    {
+        public int eth0_cur_asn_mode { get; set; }
+        public string eth0_req_ip { get; set; }
+        public string eth0_subnet { get; set; }
+        public string eth0_gateway { get; set; }
     }
 
     public class Return
